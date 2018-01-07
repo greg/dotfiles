@@ -11,6 +11,7 @@ alias grep='grep --color=auto'
 bind 'set completion-ignore-case on'
 
 function hash_to_colour {
+    # https://superuser.com/a/1124274/105618
     tput setaf $(echo $1 | sum | awk -v ncolors=$(infocmp -1 | expand | sed -n -e "s/^ *colors#\([0-9][0-9]*\),.*/\1/p") 'ncolors>1 {print 1 + ($1 % (ncolors - 1))}')
 }
 
